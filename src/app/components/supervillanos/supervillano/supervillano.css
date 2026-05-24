@@ -1,0 +1,25 @@
+.boton-villano{
+    margin-right: 30px;
+}
+:host td {
+  border-top: 1.5px solid rgb(129, 126, 126);
+  border-bottom: 1.5px solid rgb(129, 126, 126);
+  padding: 12px;
+  text-align: center;
+  color:grey;
+
+}
+
+:host td:first-child {
+    border-left: 1.5px solid rgb(129, 126, 126);
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+:host td:last-child {
+    border-right: 1px solid rgb(129, 126, 126);
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

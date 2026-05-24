@@ -1,0 +1,46 @@
+<div class ="contenedor-principal"> 
+
+    <div class = "formulario-container">
+        <h2>Enviar mensaje al Superjefe</h2>
+        <form action = "" [formGroup] = "formularioSuperjefe" (ngSubmit) = "registrarMensajeSJ()">
+            <label for = "remitente"> Remitente</label>
+            <input id = "remitente" type = "text" formControlName = "remitente">
+            @if (formularioSuperjefe.get('remitente')?.touched && formularioSuperjefe.get('remitente')?.invalid) {
+                @if (formularioSuperjefe.get('remitente')?.errors?.['maxlength']) {
+                    <small style="color:red">El remitente debe tener como máximo 20 caracteres.</small>
+                }
+            }
+
+            <label for = "edad"> Edad</label>
+            <input id = "edad" type = "number" formControlName = "edad">
+            @if (formularioSuperjefe.get('edad')?.touched && formularioSuperjefe.get('edad')?.invalid) {
+                @if (formularioSuperjefe.get('edad')?.errors?.['max']) {
+                    <small style="color:red">El nombre debe tener como máximo 2 números.</small>
+                }
+            }
+            <label for = "mensaje"> Mensaje</label>
+            <input id = "mensaje" type = "text" formControlName = "mensaje">
+             @if (formularioSuperjefe.get('mensaje')?.touched && formularioSuperjefe.get('mensaje')?.invalid) {
+                @if (formularioSuperjefe.get('mensaje')?.errors?.['required']) {
+                    <small style="color:red">El mensaje es obligatorio.</small> 
+                }
+                @if (formularioSuperjefe.get('mensaje')?.errors?.['minlength']) {
+                    <small style="color:red">El mensaje debe tener al menos 10 caracteres.</small>
+                }
+                @if (formularioSuperjefe.get('mensaje')?.errors?.['maxlength']) {
+                    <small style="color:red">El mensaje debe tener como máximo 14 caracteres.</small>
+                }
+            }
+
+            <button type = "submit"> Enviar mensaje al Superjefe </button>
+
+
+        </form>
+    </div>
+    
+    <!-- Mostrar el mensaje en otro componente, en este caso "mensajeguardado"-->
+
+    <div>
+        <app-mensajeguardado [mensaje] = "mensajePropuesto"></app-mensajeguardado>
+    </div>
+</div>

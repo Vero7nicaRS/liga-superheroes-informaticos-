@@ -1,0 +1,47 @@
+.titulo-supervillanos{
+    font-size: 35px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.supervillanos-container{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.btn-danger.activo {
+  background-color: green;
+  border-color: green ;
+}
+
+.imagen-villano-modal{
+    display: block;  /* Block: bloque */
+    margin: auto; /* La centra*/
+}
+
+.supervillanos-mensaje-paz-guerra{
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* DISEÑO DE LA TABLA */
+.disenyo-tabla{
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    width: 90%;
+    margin: auto;
+}
+
+.fila-villano{
+    box-shadow:0px 4px 10px rgb(237, 223, 223);
+}
+
+.fila-cabecera{
+    color: grey;
+    padding: 5px 20px 5px 20px;
+}

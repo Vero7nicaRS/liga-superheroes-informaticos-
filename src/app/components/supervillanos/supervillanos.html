@@ -1,0 +1,84 @@
+<h1 class ="titulo-supervillanos"> 
+    Lista negra de supervillanos 
+</h1>
+
+<!-- El texto cambia dependiendo si hay guerra o paz.
+     Si está a "true" hay guerra. Si está a "false" hay paz. -->
+@if(firmarDeclarar === true){
+    <div class = "supervillanos-mensaje-paz-guerra">
+        <p>¡Estamos en guerra contra los supervillanos! Mantente alerta y evita caer en sus trampas</p>
+    </div>
+}@else{
+    <div  class = "supervillanos-mensaje-paz-guerra">
+        <p>La guerra contra los supervillanos ha terminado. ¡Gracias por tu ayuda!</p>
+    </div>
+}
+
+
+<div class = "supervillanos-container">
+    <!-- Se crea la tabla en el componente padre "Supervillanos" y en "Supervillano" solamente
+         se lee el contenido de cada villano.
+         Si no se hace así, se crearía una tabla para cada supervillano, y se quiere tener una única
+         tabla con varias filas de supervillanos
+    -->
+    <table class="disenyo-tabla">
+        <thead>
+            <tr>
+                <th class="fila-cabecera" scope="col">Nombre</th>
+                <th class="fila-cabecera" scope="col">Descripcion</th>
+                <th class="fila-cabecera" scope="col">Inteligencia</th>
+                <th class="fila-cabecera" scope="col">Fuerza</th>
+                <th class="fila-cabecera" scope="col">Velocidad</th>
+                <th class="fila-cabecera" scope="col">Durabilidad</th>
+                <th class="fila-cabecera" scope="col">Poder</th>
+                <th class="fila-cabecera" scope="col">Combate</th>
+                <th class="fila-cabecera" scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(supervillano of villanos; track supervillano.id){
+                
+                <tr class="fila-villano"
+                    app-supervillano [supervillano]="supervillano" 
+                    (eliminarVillano) = "eliminarSupervillano($event)"
+                    (verImagenVillano) = "verImagenSupervillano($event)" ></tr>
+            }    
+            <!-- En () hay que poner el nombre del @Output del componente hijo "supervillano"
+                 y en la asignación el método del componente que estamos usando, es decir,
+                 el componente padre "supervillanos" -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Si "firmarDeclarar" es "true", el botón tiene el mensaje "Firmar la paz" y el botón está verde.
+     Si "firmarDeclarar" es "false", el botón tiene el mensaje "Declarar la guerra" y el botón está rojo. -->
+<button class = "btn btn-danger"
+        [class.activo] = "firmarDeclarar"
+        (click) = "firmarDeclarar = !firmarDeclarar"
+        > {{ firmarDeclarar ? "Firmar la paz" : "Declarar la guerra"}}
+</button>
+
+
+<div class="modal" id="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Imagen del villano</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Se pone directamente la imagen con "img" y no "form-input" porque si no, sería para
+                modificar la imagen.
+            -->
+            <div class="modal-body">
+                    <img 
+                        [src]="villanoImagen.imagen"
+                        class="imagen-villano-modal"
+                        alt={{villanoImagen.nombre}}>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
