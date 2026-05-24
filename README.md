@@ -20,10 +20,26 @@ Los campos que debe tener el formulario son :
  
 
 ## Ejecutar el proyecto
-Introducir la siguiente línea de comando: 
+
+Clonar el repositorio
 
 ```bash
 git clone https://github.com/Vero7nicaRS/liga-superheroes-informaticos-.git
+```
+
+Instalar las dependencias:
+
+```bash
 npm install
+```
+Ejecutar el proyecto:
+Introducir la siguiente línea de comando: 
+
+```bash
 ng serve
+```
+
+Abrir el proyecto en el navegador:
+```text
+http://localhost:4200
 ```
