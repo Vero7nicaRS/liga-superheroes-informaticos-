@@ -9,13 +9,19 @@
                 @if (formularioSuperjefe.get('remitente')?.errors?.['maxlength']) {
                     <small style="color:red">El remitente debe tener como máximo 20 caracteres.</small>
                 }
+                @if (formularioSuperjefe.get('remitente')?.errors?.['required']) {
+                    <small style="color:red">El remitente es obligatorio.</small>
+                }
             }
 
             <label for = "edad"> Edad</label>
             <input id = "edad" type = "number" formControlName = "edad">
             @if (formularioSuperjefe.get('edad')?.touched && formularioSuperjefe.get('edad')?.invalid) {
                 @if (formularioSuperjefe.get('edad')?.errors?.['max']) {
-                    <small style="color:red">El nombre debe tener como máximo 2 números.</small>
+                    <small style="color:red">La edad debe tener como máximo 2 números.</small>
+                }
+                @if (formularioSuperjefe.get('edad')?.errors?.['required']) {
+                    <small style="color:red">La edad es obligatoria.</small> 
                 }
             }
             <label for = "mensaje"> Mensaje</label>
