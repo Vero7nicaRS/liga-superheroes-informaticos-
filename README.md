@@ -19,7 +19,7 @@ Los campos que debe tener el formulario son :
 
  
 
-## Ejecutar el proyecto
+##  ⚙ Ejecutar el proyecto
 
 Clonar el repositorio
 
