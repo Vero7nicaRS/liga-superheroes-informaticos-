@@ -23,5 +23,7 @@ Los campos que debe tener el formulario son :
 Introducir la siguiente línea de comando: 
 
 ```bash
+git clone https://github.com/Vero7nicaRS/liga-superheroes-informaticos-.git
+npm install
 ng serve
 ```
